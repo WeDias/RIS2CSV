@@ -4,7 +4,7 @@ from csv import DictWriter
 from config import TAG_KEY_MAPPING
 
 
-class RISConv():
+class RISConv:
 
     def __init__(self, file_path: str) -> None:
         self.data = []
