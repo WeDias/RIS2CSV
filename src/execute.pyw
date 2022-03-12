@@ -17,11 +17,11 @@ class Program:
         self.window.geometry('450x80+600+400')
         self.window.resizable(False, False)
 
-        icon_folder = tk.PhotoImage(file='resources/icon_folder.png')
+        icon_folder = tk.PhotoImage(file='../resources/icon_folder.png')
         self.bt_open_file = tk.Button(self.window, borderwidth=0, image=icon_folder, cursor='hand2', command=self.open_file)
         self.bt_open_file.grid(row=0, column=1, padx=10)
 
-        icon_save = tk.PhotoImage(file='resources/icon_save.png')
+        icon_save = tk.PhotoImage(file='../resources/icon_save.png')
         self.bt_save = tk.Button(image=icon_save, borderwidth=0, state='disable', command=self.save_file)
         self.bt_save.grid(row=0, column=2, padx=10)
 
