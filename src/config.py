@@ -6,6 +6,7 @@ CITED_BY_TAG = 'CB'
 CITED_BY_TEXT = 'Cited By'
 
 NOTE_TAG = 'N1'
+TYPE_TAG = 'TY'
 END_REFERENCE_TAG = 'ER'
 
 CSV_DELIMITER = '\t'
@@ -97,5 +98,67 @@ TAG_KEY_MAPPING = defaultdict(
         'Y2': 'access_date',
         'ER': 'end_of_reference',
         'UK': 'unknown_tag',
+    }
+)
+
+TYPE_REFERENCE_MAPPING = defaultdict(
+    lambda: 'unknown_type_reference',
+    {
+        'ABST': 'abstract',
+        'ADVS': 'audiovisual_material',
+        'AGGR': 'aggregated_database',
+        'ANCIENT': 'ancient_text',
+        'ART': 'art_work',
+        'BILL': 'bill',
+        'BLOG': 'blog',
+        'BOOK': 'whole_book',
+        'CASE': 'case',
+        'CHAP': 'book_chapter',
+        'CHART': 'chart',
+        'CLSWK': 'classical_work',
+        'COMP': 'computer_program',
+        'CONF': 'conference_proceeding',
+        'CPAPER': 'conference_paper',
+        'CTLG': 'catalog',
+        'DATA': 'data_file',
+        'DBASE': 'online_database',
+        'DICT': 'dictionary',
+        'EBOOK': 'electronic_book',
+        'ECHAP': 'electronic_book_section',
+        'EDBOOK': 'edited_book',
+        'EJOUR': 'electronic_article',
+        'WEB': 'web_page',
+        'ENCYC': 'encyclopedia',
+        'EQUA': 'equation',
+        'FIGURE': 'figure',
+        'GEN': 'generic',
+        'GOVDOC': 'government_document',
+        'GRANT': 'grant',
+        'HEAR': 'hearing',
+        'ICOMM': 'internet_communication',
+        'INPR': 'in_press',
+        'JFULL': 'journal_(full)',
+        'JOUR': 'journal',
+        'LEGAL': 'legal_rule_or_regulation',
+        'MANSCPT': 'manuscript',
+        'MAP': 'map',
+        'MGZN': 'magazine_article',
+        'MPCT': 'motion_picture',
+        'MULTI': 'online_multimedia',
+        'MUSIC': 'music_score',
+        'NEWS': 'newspaper',
+        'PAMP': 'pamphlet',
+        'PAT': 'patent',
+        'PCOMM': 'personal_communication',
+        'RPRT': 'report',
+        'SER': 'serial_publication',
+        'SLIDE': 'slide',
+        'SOUND': 'sound_recording',
+        'STAND': 'standard',
+        'STAT': 'statute',
+        'THES': 'thesis/dissertation',
+        'UNBILL': 'unenacted_bill',
+        'UNPB': 'unpublished_work',
+        'VIDEO': 'video_recording'
     }
 )

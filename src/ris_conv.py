@@ -40,11 +40,17 @@ class RISConv:
                         continue
 
                     current_entry = self._entries[-1]
-                    if current_tag == NOTE_TAG and tag_value.startswith(CITED_BY_TEXT):
+
+                    if current_tag == TYPE_TAG:
+                        current_entry[name_tag] = TYPE_REFERENCE_MAPPING[tag_value]
+
+                    elif current_tag == NOTE_TAG and tag_value.startswith(CITED_BY_TEXT):
                         name_tag = TAG_KEY_MAPPING[CITED_BY_TAG]
                         current_entry[name_tag] = re.search(':(\\d+)', tag_value).group(1)
+
                     elif name_tag not in current_entry:
                         current_entry[name_tag] = StringBuilder(tag_value)
+
                     else:
                         current_entry[name_tag].add(f'{SUB_DELIMITER}{tag_value}')
 
