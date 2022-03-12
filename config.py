@@ -1,15 +1,15 @@
 from collections import defaultdict
 
 
-NOTE_TAG = 'N1'
-
+# Custom tag
 CITED_BY_TAG = 'CB'
 CITED_BY_TEXT = 'Cited By'
 
+NOTE_TAG = 'N1'
 END_REFERENCE_TAG = 'ER'
 
 CSV_DELIMITER = '\t'
-SUB_DELIMITER = '|'
+SUB_DELIMITER = ' | '
 
 TAG_KEY_MAPPING = defaultdict(
     lambda: 'unknown_tag',

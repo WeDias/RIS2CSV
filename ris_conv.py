@@ -17,6 +17,7 @@ class RISConv:
             new_entry_flag = True
             with open(self._file_path, encoding='utf-8') as ris_file:
 
+                last_name_tag = None
                 for line in ris_file:
                     line = line.strip()
                     if not line:
@@ -25,21 +26,29 @@ class RISConv:
                         self._entries.append({})
                         new_entry_flag = False
 
-                    current_tag, tag_value = re.search('(.*)  - ?(.*)', line).groups()
+                    search = re.search('(.*)  - ?(.*)', line)
+                    if search is None:
+                        current_entry[last_name_tag].add(line)
+                        continue
+
+                    current_tag, tag_value = search.groups()
                     name_tag = TAG_KEY_MAPPING[current_tag]
+                    last_name_tag = name_tag
 
                     if current_tag == END_REFERENCE_TAG:
                         new_entry_flag = True
                         continue
 
                     current_entry = self._entries[-1]
+
                     if current_tag == NOTE_TAG and CITED_BY_TEXT in tag_value:
                         name_tag = TAG_KEY_MAPPING[CITED_BY_TAG]
                         current_entry[name_tag] = re.search(':(\\d+)', tag_value).group(1)
                     elif name_tag not in current_entry:
                         current_entry[name_tag] = StringBuilder(tag_value)
                     else:
-                        current_entry[name_tag].add(f' {SUB_DELIMITER} {tag_value}')
+                        current_entry[name_tag].add(f'{SUB_DELIMITER}{tag_value}')
+
                     self._tags_in_file[name_tag] = True
 
         return self._entries
