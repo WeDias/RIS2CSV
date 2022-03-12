@@ -1,6 +1,7 @@
 # RIS2CSV
 
 RIS2CSV Convert RIS files from [Scopus](https://www.scopus.com/) to CSV files for easier data analysis.  
+Output CSV file uses tab **'\t'** as delimiter.  
 
 It was created because there are problems with downloading CSV files from
 the [Scopus](https://www.scopus.com/) platform and other formats being more difficult to create analyzes with Excel.  
