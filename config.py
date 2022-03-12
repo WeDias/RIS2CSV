@@ -9,6 +9,7 @@ CITED_BY_TEXT = 'Cited By'
 END_REFERENCE_TAG = 'ER'
 
 CSV_DELIMITER = '\t'
+SUB_DELIMITER = '|'
 
 TAG_KEY_MAPPING = defaultdict(
     lambda: 'unknown_tag',

@@ -39,7 +39,7 @@ class RISConv:
                     elif name_tag not in current_entry:
                         current_entry[name_tag] = StringBuilder(tag_value)
                     elif current_entry[name_tag]:
-                        current_entry[name_tag].add(f' | {tag_value}')
+                        current_entry[name_tag].add(f' {SUB_DELIMITER} {tag_value}')
                     self._tags_in_file[name_tag] = True
 
         return self._entries
