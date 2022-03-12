@@ -40,8 +40,7 @@ class RISConv:
                         continue
 
                     current_entry = self._entries[-1]
-
-                    if current_tag == NOTE_TAG and CITED_BY_TEXT in tag_value:
+                    if current_tag == NOTE_TAG and tag_value.startswith(CITED_BY_TEXT):
                         name_tag = TAG_KEY_MAPPING[CITED_BY_TAG]
                         current_entry[name_tag] = re.search(':(\\d+)', tag_value).group(1)
                     elif name_tag not in current_entry:
