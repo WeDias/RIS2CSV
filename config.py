@@ -1,6 +1,15 @@
 from collections import defaultdict
 
 
+NOTE_TAG = 'N1'
+
+CITED_BY_TAG = 'CB'
+CITED_BY_TEXT = 'Cited By'
+
+END_REFERENCE_TAG = 'ER'
+
+CSV_DELIMITER = '\t'
+
 TAG_KEY_MAPPING = defaultdict(
     lambda: 'unknown_tag',
     {
