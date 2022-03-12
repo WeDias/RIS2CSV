@@ -38,7 +38,7 @@ class RISConv:
                         current_entry[name_tag] = re.search(':(\\d+)', tag_value).group(1)
                     elif name_tag not in current_entry:
                         current_entry[name_tag] = StringBuilder(tag_value)
-                    elif current_entry[name_tag]:
+                    else:
                         current_entry[name_tag].add(f' {SUB_DELIMITER} {tag_value}')
                     self._tags_in_file[name_tag] = True
 
