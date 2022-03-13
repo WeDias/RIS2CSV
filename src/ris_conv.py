@@ -16,24 +16,27 @@ class RISConv:
         if not self._entries:
             with open(self._file_path, encoding=ENCONDING) as ris_file:
                 new_entry_flag = True
-                last_name_tag = None
 
                 for line in ris_file:
                     line = line.strip()
                     if not line:
                         continue
-                    elif new_entry_flag:
+
+                    if new_entry_flag:
                         self._entries.append({})
                         new_entry_flag = False
 
                     search = re.search('(\w{2})  - ?(.*)', line)
                     if search is None:
-                        current_entry[last_name_tag].add(line)
+                        current_entry[name_tag].add(line)
                         continue
+
+                    tag_start_pos = search.start()
+                    if tag_start_pos != 0:
+                        current_entry[name_tag].add(line[:tag_start_pos])
 
                     current_tag, tag_value = search.groups()
                     name_tag = TAG_KEY_MAPPING[current_tag]
-                    last_name_tag = name_tag
 
                     if current_tag == END_REFERENCE_TAG:
                         new_entry_flag = True
