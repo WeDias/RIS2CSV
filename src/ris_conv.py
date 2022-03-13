@@ -14,10 +14,10 @@ class RISConv:
 
     def ris_to_dict(self) -> list:
         if not self._entries:
-            new_entry_flag = True
-            with open(self._file_path, encoding='utf-8') as ris_file:
-
+            with open(self._file_path, encoding=ENCONDING) as ris_file:
+                new_entry_flag = True
                 last_name_tag = None
+
                 for line in ris_file:
                     line = line.strip()
                     if not line:
@@ -26,7 +26,7 @@ class RISConv:
                         self._entries.append({})
                         new_entry_flag = False
 
-                    search = re.search('(.*)  - ?(.*)', line)
+                    search = re.search('(\w{2})  - ?(.*)', line)
                     if search is None:
                         current_entry[last_name_tag].add(line)
                         continue
@@ -60,7 +60,7 @@ class RISConv:
 
     def ris_to_csv(self, file_path: str) -> None:
         entries = self.ris_to_dict()
-        with open(file_path, 'w', encoding='utf-8', newline='') as file:
+        with open(file_path, 'w', encoding=ENCONDING, newline='') as file:
             writer = DictWriter(file, self._tags_in_file, delimiter=CSV_DELIMITER)
             writer.writeheader()
             writer.writerows(entries)

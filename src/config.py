@@ -1,6 +1,10 @@
 from collections import defaultdict
 
 
+ENCONDING = 'UTF-8'
+CSV_DELIMITER = '\t'
+SUB_DELIMITER = ' | '
+
 # Custom tag
 CITED_BY_TAG = 'CB'
 CITED_BY_TEXT = 'Cited By'
@@ -8,9 +12,6 @@ CITED_BY_TEXT = 'Cited By'
 NOTE_TAG = 'N1'
 TYPE_TAG = 'TY'
 END_REFERENCE_TAG = 'ER'
-
-CSV_DELIMITER = '\t'
-SUB_DELIMITER = ' | '
 
 # https://en.wikipedia.org/wiki/RIS_(file_format)
 TAG_KEY_MAPPING = defaultdict(
